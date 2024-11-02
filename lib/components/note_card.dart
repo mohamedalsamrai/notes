@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key});
@@ -16,12 +15,13 @@ class NoteCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Title",
-                  style: GoogleFonts.poppins(
-                      color: const Color(0xffffffff),
+                  style: TextStyle(
+                      color: Color(0xffffffff),
                       fontWeight: FontWeight.bold,
-                      fontSize: 30),
+                      fontSize: 30,
+                      fontFamily: "Poppins"),
                 ),
                 IconButton(
                     onPressed: () {},
@@ -35,24 +35,26 @@ class NoteCard extends StatelessWidget {
             const SizedBox(
               height: 14,
             ),
-            Text(
+            const Text(
               "detail any thing you can write:my meeting start at 9:00 AM  ",
-              style: GoogleFonts.poppins(
-                  color: const Color.fromARGB(190, 0, 0, 0),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
+              style: TextStyle(
+                  color: Color.fromARGB(190, 0, 0, 0),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                  fontFamily: "Poppins"),
             ),
             const SizedBox(
               height: 14,
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: Text(
                 "2004 Oct",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontSize: 20),
+                    fontSize: 20,
+                    fontFamily: "Poppins"),
               ),
             )
           ],

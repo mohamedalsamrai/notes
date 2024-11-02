@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const Note());
 }
@@ -11,15 +10,18 @@ class Note extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
+          shadowColor: Colors.black,
+          elevation: 1.5,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color(0xffffffff),
-        appBar: AppBar(
-          shadowColor: Colors.black,
-          surfaceTintColor: const Color(0xffffffff),
-          elevation: 2,
-          backgroundColor: const Color(0xffffffff),
-        ),
+        appBar: AppBar(),
       ),
     );
   }
