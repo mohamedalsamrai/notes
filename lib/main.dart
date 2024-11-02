@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:notes/components/note_card.dart';
+
 void main() {
   runApp(const Note());
 }
@@ -20,9 +22,7 @@ class Note extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(),
-      ),
+      home: const NoteCard(),
     );
   }
 }
