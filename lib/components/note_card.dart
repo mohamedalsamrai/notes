@@ -6,6 +6,7 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
       color: Colors.blue[400],
       child: Padding(
         padding: const EdgeInsets.all(16),
