@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'package:notes/components/note_card.dart';
+import 'package:notes/components/add_note_botton_sheet.dart';
+import 'package:notes/components/note_appbar.dart';
 import 'package:notes/components/notes_listview.dart';
+import 'package:notes/pages/note_page.dart';
+import 'package:notes/theme.dart';
 
 void main() {
   runApp(const Note());
@@ -13,35 +15,8 @@ class Note extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.black,
-            surfaceTintColor: Colors.white,
-            shadowColor: Colors.black,
-            elevation: 0,
-          ),
-          scaffoldBackgroundColor: Colors.black,
-        ),
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-                title: const Text(
-                  'Notes',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                    fontSize: 35,
-                  ),
-                ),
-                actions: [
-                  IconButton(
-                      icon: const Icon(
-                        Icons.search,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                      onPressed: () {})
-                ]),
-            body: NotesListview()));
+        theme: themeApp(), debugShowCheckedModeBanner: false, home: NotePage());
   }
 }
+
+
