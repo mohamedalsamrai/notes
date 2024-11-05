@@ -16,19 +16,20 @@ class NotePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            backgroundColor: Colors.black,
             context: context,
             builder: (context) => const AddNoteBottonSheet(),
           );
         },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
         backgroundColor: Colors.black,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(30.0),
           ),
+        ),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );

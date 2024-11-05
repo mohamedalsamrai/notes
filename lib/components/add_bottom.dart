@@ -5,25 +5,23 @@ class AddBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: () {},
-      child: Container(
-        height: 55,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.blue,
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: Text(
-            "Save",
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              color: Colors.white,
-              fontSize: 18,
-            ),
-          ),
+      ),
+      child: Text(
+        "Add",
+        style: TextStyle(
+          fontFamily: 'Poppins',
+          color: Colors.white,
+          fontSize: 18,
         ),
       ),
     );
