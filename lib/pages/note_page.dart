@@ -18,7 +18,7 @@ class NotePage extends StatelessWidget {
           showModalBottomSheet(
             backgroundColor: Colors.black,
             context: context,
-            builder: (context) => const AddNoteBottonSheet(),
+            builder: (context) =>  AddNoteBottonSheet(),
           );
         },
         backgroundColor: Colors.black,
