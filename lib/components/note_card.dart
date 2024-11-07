@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes/components/add_note_botton_sheet.dart';
 import 'package:notes/pages/edit_note.dart';
 
 class NoteCard extends StatelessWidget {

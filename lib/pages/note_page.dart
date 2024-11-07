@@ -11,7 +11,7 @@ class NotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: noteAppBar(title: "Note"),
+      appBar: noteAppBar(title: "Note", icon: Icons.search, actionIcon: () {}),
       body: NotesListview(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

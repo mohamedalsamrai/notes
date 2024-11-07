@@ -9,7 +9,8 @@ class EditNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: noteAppBar(title: "Edit"),
+      appBar:
+          noteAppBar(title: "Edit", icon: Icons.check_sharp, actionIcon: () {}),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -32,11 +33,6 @@ class EditNote extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            AddBottom(
-              action: () {
-                Navigator.pop(context);
-              },
             ),
             SizedBox(
               height: 25,
