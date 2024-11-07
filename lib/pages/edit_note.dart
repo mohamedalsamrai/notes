@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:notes/components/add_bottom.dart';
+import 'package:notes/components/custom_text_field.dart';
+import 'package:notes/components/note_appbar.dart';
+
+class EditNote extends StatelessWidget {
+  const EditNote({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: noteAppBar(title: "Edit"),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  SizedBox(
+                    height: 34,
+                  ),
+                  CustomTextField(
+                    hintText: "Title",
+                  ),
+                  SizedBox(
+                    height: 34,
+                  ),
+                  CustomTextField(
+                    hintText: "detail",
+                    maxLine: 5,
+                  ),
+                ],
+              ),
+            ),
+            AddBottom(
+              action: () {
+                Navigator.pop(context);
+              },
+            ),
+            SizedBox(
+              height: 25,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

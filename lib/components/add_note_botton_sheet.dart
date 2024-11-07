@@ -30,7 +30,11 @@ class AddNoteBottonSheet extends StatelessWidget {
               ],
             ),
           ),
-          AddBottom(),
+          AddBottom(
+            action: () {
+              Navigator.pop(context);
+            },
+          ),
           SizedBox(
             height: 25,
           ),
@@ -39,4 +43,3 @@ class AddNoteBottonSheet extends StatelessWidget {
     );
   }
 }
-
