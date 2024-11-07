@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:notes/components/add_note_botton_sheet.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/cubits/cubit/notes_cubit.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/pages/edit_note.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key});
+  const NoteCard({
+    super.key,
+    required this.noteModel,
+  });
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class NoteCard extends StatelessWidget {
       },
       child: Card(
         margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
-        color: Colors.blue[400],
+        color: Color(noteModel.color),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -26,8 +32,8 @@ class NoteCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Title",
+                  Text(
+                    noteModel.title,
                     style: TextStyle(
                         color: Color(0xffffffff),
                         fontWeight: FontWeight.bold,
@@ -35,7 +41,10 @@ class NoteCard extends StatelessWidget {
                         fontFamily: "Poppins"),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        noteModel.delete();
+                        BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                      },
                       icon: const Icon(
                         Icons.delete_outline,
                         size: 30,
@@ -46,8 +55,8 @@ class NoteCard extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              const Text(
-                "detail any thing you can write:my meeting start at 9:00 AM  ",
+              Text(
+                noteModel.details,
                 style: TextStyle(
                     color: Color.fromARGB(190, 0, 0, 0),
                     fontWeight: FontWeight.w400,
@@ -57,10 +66,10 @@ class NoteCard extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "2004 Oct",
+                  noteModel.creationDate,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,

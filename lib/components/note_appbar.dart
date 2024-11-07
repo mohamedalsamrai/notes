@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-PreferredSizeWidget? noteAppBar({required String title}) {
+PreferredSizeWidget? noteAppBar(
+    {required String title, required IconData icon,required VoidCallback actionIcon}) {
   return AppBar(
       title: Text(
         title,
@@ -13,10 +14,10 @@ PreferredSizeWidget? noteAppBar({required String title}) {
       actions: [
         IconButton(
             iconSize: 35,
-            icon: const Icon(
-              Icons.search,
+            icon: Icon(
+              icon,
               color: Colors.white,
             ),
-            onPressed: () {})
+            onPressed:actionIcon)
       ]);
 }
