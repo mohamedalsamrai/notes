@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:notes/pages/edit_note.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key});
+  const NoteCard(
+      {super.key,
+      required this.title,
+      required this.detail,
+      required this.date});
+  final String title;
+  final String detail;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +32,8 @@ class NoteCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Title",
+                  Text(
+                    title,
                     style: TextStyle(
                         color: Color(0xffffffff),
                         fontWeight: FontWeight.bold,
@@ -45,8 +52,8 @@ class NoteCard extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              const Text(
-                "detail any thing you can write:my meeting start at 9:00 AM  ",
+              Text(
+                detail,
                 style: TextStyle(
                     color: Color.fromARGB(190, 0, 0, 0),
                     fontWeight: FontWeight.w400,
@@ -56,10 +63,10 @@ class NoteCard extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "2004 Oct",
+                  date,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,

@@ -13,7 +13,7 @@ class NotesListview extends StatelessWidget {
         top: 20,
       ),
       itemBuilder: (context, index) {
-        return NoteCard();
+        return NoteCard(title: '', detail: '', date: '',);
       },
     );
   }
