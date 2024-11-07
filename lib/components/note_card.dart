@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notes/components/add_note_botton_sheet.dart';
+import 'package:notes/components/edit_note.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key});
@@ -6,7 +8,13 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        showModalBottomSheet(
+          backgroundColor: Colors.black,
+          context: context,
+          builder: (context) => const EditNoteSheet(),
+        );
+      },
       child: Card(
         margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
         color: Colors.blue[400],
