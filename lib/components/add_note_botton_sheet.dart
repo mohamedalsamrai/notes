@@ -9,6 +9,29 @@ class AddNoteBottonSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: AddNoteSheetForm(),
+    );
+  }
+}
+
+class AddNoteSheetForm extends StatefulWidget {
+  const AddNoteSheetForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteSheetForm> createState() => _AddNoteSheetFormState();
+}
+
+class _AddNoteSheetFormState extends State<AddNoteSheetForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, detail;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      autovalidateMode: autovalidateMode,
+      key: formKey,
       child: Column(
         children: [
           Expanded(
@@ -18,12 +41,18 @@ class AddNoteBottonSheet extends StatelessWidget {
                   height: 34,
                 ),
                 CustomTextField(
+                  onSave: (value) {
+                    title = value;
+                  },
                   hintText: "Title",
                 ),
                 SizedBox(
                   height: 34,
                 ),
                 CustomTextField(
+                  onSave: (value) {
+                    detail = value;
+                  },
                   hintText: "detail",
                   maxLine: 5,
                 ),
@@ -32,7 +61,12 @@ class AddNoteBottonSheet extends StatelessWidget {
           ),
           AddBottom(
             action: () {
-              Navigator.pop(context);
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
             },
           ),
           SizedBox(
