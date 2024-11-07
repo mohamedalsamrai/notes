@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes/components/add_note_botton_sheet.dart';
-import 'package:notes/components/note_appbar.dart';
-import 'package:notes/components/notes_listview.dart';
 import 'package:notes/pages/note_page.dart';
 import 'package:notes/theme.dart';
 
