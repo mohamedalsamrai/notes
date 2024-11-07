@@ -26,7 +26,10 @@ class AddNoteBottonSheet extends StatelessWidget {
           return ModalProgressHUD(
               inAsyncCall: state is AddNoteLoading ? true : false,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddNoteSheetForm(),
               ));
         },

@@ -24,31 +24,33 @@ class _AddNoteSheetFormState extends State<AddNoteSheetForm> {
       autovalidateMode: autovalidateMode,
       key: formKey,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: ListView(
-              children: [
-                SizedBox(
-                  height: 34,
-                ),
-                CustomTextField(
-                  onSave: (value) {
-                    title = value;
-                  },
-                  hintText: "Title",
-                ),
-                SizedBox(
-                  height: 34,
-                ),
-                CustomTextField(
-                  onSave: (value) {
-                    detail = value;
-                  },
-                  hintText: "detail",
-                  maxLine: 5,
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              SizedBox(
+                height: 34,
+              ),
+              CustomTextField(
+                onSave: (value) {
+                  title = value;
+                },
+                hintText: "Title",
+              ),
+              SizedBox(
+                height: 34,
+              ),
+              CustomTextField(
+                onSave: (value) {
+                  detail = value;
+                },
+                hintText: "detail",
+                maxLine: 5,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 50,
           ),
           AddBottom(
             action: () {
