@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/pages/edit_note.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard(
-      {super.key,
-      required this.title,
-      required this.detail,
-      required this.date});
-  final String title;
-  final String detail;
-  final String date;
+  const NoteCard({
+    super.key,
+    required this.noteModel,
+  });
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class NoteCard extends StatelessWidget {
       },
       child: Card(
         margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
-        color: Colors.blue[400],
+        color: Color(noteModel.color),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -33,7 +31,7 @@ class NoteCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    title,
+                    noteModel.title,
                     style: TextStyle(
                         color: Color(0xffffffff),
                         fontWeight: FontWeight.bold,
@@ -41,7 +39,9 @@ class NoteCard extends StatelessWidget {
                         fontFamily: "Poppins"),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        noteModel.delete();
+                      },
                       icon: const Icon(
                         Icons.delete_outline,
                         size: 30,
@@ -53,7 +53,7 @@ class NoteCard extends StatelessWidget {
                 height: 14,
               ),
               Text(
-                detail,
+                noteModel.details,
                 style: TextStyle(
                     color: Color.fromARGB(190, 0, 0, 0),
                     fontWeight: FontWeight.w400,
@@ -66,7 +66,7 @@ class NoteCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  date,
+                  noteModel.creationDate,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,

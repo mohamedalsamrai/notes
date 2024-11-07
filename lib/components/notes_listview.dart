@@ -32,9 +32,7 @@ class _NotesListviewState extends State<NotesListview> {
           ),
           itemBuilder: (context, index) {
             return NoteCard(
-              title: '',
-              detail: '',
-              date: '',
+              noteModel: noteList[index],
             );
           },
         );
