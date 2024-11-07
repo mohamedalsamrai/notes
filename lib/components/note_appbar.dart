@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-PreferredSizeWidget? noteAppBar() {
+
+PreferredSizeWidget? noteAppBar({required String title}) {
   return AppBar(
-      title: const Text(
-        'Notes',
+      title: Text(
+        title,
         style: TextStyle(
           fontFamily: 'Poppins',
           color: Colors.white,
@@ -11,7 +12,7 @@ PreferredSizeWidget? noteAppBar() {
       ),
       actions: [
         IconButton(
-            iconSize: 40,
+            iconSize: 35,
             icon: const Icon(
               Icons.search,
               color: Colors.white,

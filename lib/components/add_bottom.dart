@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddBottom extends StatelessWidget {
-  const AddBottom({super.key});
+  final VoidCallback action;
+  const AddBottom({super.key, required this.action});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
+      onPressed: action,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 150),
@@ -17,7 +16,7 @@ class AddBottom extends StatelessWidget {
         ),
       ),
       child: Text(
-        "Add",
+        "Save",
         style: TextStyle(
           fontFamily: 'Poppins',
           color: Colors.white,
