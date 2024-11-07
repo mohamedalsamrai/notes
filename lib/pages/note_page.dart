@@ -12,9 +12,8 @@ class NotePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
+    return 
+       Scaffold(
         appBar:
             noteAppBar(title: "Note", icon: Icons.search, actionIcon: () {}),
         body: NotesListview(),
@@ -38,7 +37,6 @@ class NotePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-      ),
-    );
+      );
   }
 }

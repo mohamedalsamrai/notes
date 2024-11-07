@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes/components/add_bottom.dart';
 import 'package:notes/components/custom_text_field.dart';
 import 'package:notes/cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes/cubits/cubit/notes_cubit.dart';
 import 'package:notes/models/note_model.dart';
 
 class AddNoteSheetForm extends StatefulWidget {
