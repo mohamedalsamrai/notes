@@ -10,7 +10,7 @@ class AddBottom extends StatelessWidget {
       onPressed: action,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 162),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
