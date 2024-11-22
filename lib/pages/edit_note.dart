@@ -1,45 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:notes/components/add_bottom.dart';
-import 'package:notes/components/custom_text_field.dart';
-import 'package:notes/components/note_appbar.dart';
+import 'package:notes/models/note_model.dart';
 
-class EditNote extends StatelessWidget {
-  const EditNote({super.key});
+class EditNote extends StatefulWidget {
+  final NoteModel noteModel;
+
+  const EditNote({super.key, required this.noteModel});
+
+  @override
+  State<EditNote> createState() => _EditNoteState();
+}
+
+class _EditNoteState extends State<EditNote> {
+  late TextEditingController _titleController;
+  late TextEditingController _detailsController;
+
+  @override
+  void initState() {
+    super.initState();
+    _titleController = TextEditingController(text: widget.noteModel.title);
+    _detailsController = TextEditingController(text: widget.noteModel.details);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          noteAppBar(title: "Edit", icon: Icons.check_sharp, actionIcon: () {}),
+      appBar: AppBar(
+        title: Text(
+          'Edit Note',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.check),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  SizedBox(
-                    height: 34,
-                  ),
-                  CustomTextField(
-                    hintText: "Title",
-                  ),
-                  SizedBox(
-                    height: 34,
-                  ),
-                  CustomTextField(
-                    hintText: "detail",
-                    maxLine: 5,
-                  ),
-                ],
-              ),
+            TextField(
+              controller: _titleController,
+              decoration: InputDecoration(hintText: 'Title'),
+              style: TextStyle(color: Colors.white),
             ),
-            SizedBox(
-              height: 25,
+            TextField(
+              controller: _detailsController,
+              maxLines: 5,
+              decoration: InputDecoration(hintText: 'Details'),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _detailsController.dispose();
+    super.dispose();
   }
 }
