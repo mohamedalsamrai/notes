@@ -32,13 +32,17 @@ class NoteCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    noteModel.title,
-                    style: TextStyle(
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                        fontFamily: "Poppins"),
+                  Flexible(
+                    child: Text(
+                      noteModel.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Color(0xffffffff),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          fontFamily: "Poppins"),
+                    ),
                   ),
                   IconButton(
                       onPressed: () {
