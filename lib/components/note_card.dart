@@ -18,7 +18,9 @@ class NoteCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EditNote(),
+              builder: (context) => EditNote(
+                noteModel: noteModel,
+              ),
             ));
       },
       child: Card(
